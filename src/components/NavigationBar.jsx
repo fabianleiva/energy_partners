@@ -19,8 +19,7 @@ const NavigationBar = () => {
                 className="text-3xl font-work-sans tracking-tight flex items-center duration-200 group whitespace-nowrap"
               >
                 <div className="flex items-center transition-colors group-hover:text-[#848484]">
-                  Energy Partners
-                  <span className="ml-2 w-2.5 h-2.5 rounded-full inline-block bg-[#000000] transition-colors group-hover:bg-[#848484]"></span>
+                  <img className="max-w-80" src="/src/assets/images/Logo Energy Partners-fondoblanco_transparent bg.png" alt="logo" />
                 </div>
               </NavLink>
             </div>
