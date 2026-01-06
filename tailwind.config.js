@@ -1,0 +1,25 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      animation: {
+        "infinite-scroll": "infinite-scroll 100s linear infinite",
+      },
+      keyframes: {
+        "infinite-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
+      },
+      fontFamily: {
+        "ballet": ['"Ballet"', "cursive"],
+        "work-sans": ['"Work Sans"', "sans-serif"],
+        "tsukimi": ['"Tsukimi Rounded"', "sans-serif"],
+        "notable": ['"Notable"', "sans-serif"],
+        "special-gothic": ['"Special Gothic Expanded One"', "sans-serif"],
+      },
+    },
+  },
+  plugins: [],
+};
