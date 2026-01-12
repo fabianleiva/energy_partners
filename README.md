@@ -1,5 +1,5 @@
-FKS Arquitectos
+Energy Partners Website
 
-Website developed by Fabián Leiva using React, Tailwind and Wordpress as Headless CMS.
+Website developed by Fabián Leiva using React, Vite, Tailwind.
 
 contact: fabianleivacortes@gmail.com
