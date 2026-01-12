@@ -1,5 +1,32 @@
 import bg3 from "../assets/images/logo_vector.png";
 import { IoArrowDownCircleOutline } from "react-icons/io5";
+import {
+  HiOutlineCog6Tooth,
+  HiOutlineCheckBadge,
+  HiOutlinePresentationChartLine,
+  HiOutlineSignal,
+  HiOutlineArrowPathRoundedSquare,
+  HiOutlineDocumentText,
+  HiOutlineArrowsRightLeft,
+  HiOutlineClipboardDocumentCheck,
+} from "react-icons/hi2";
+
+function ServiceCard({ title, desc, Icon }) {
+  return (
+    <div className="bg-white rounded-2xl border border-black/10 shadow-[0_10px_20px_rgba(0,0,0,0.08)] px-5 pt-5 pb-4 min-h-[140px] flex flex-col justify-between">
+      <div>
+        <h3 className="text-[12px] font-semibold text-black leading-snug">
+          {title}
+        </h3>
+        <p className="mt-2 text-[10px] text-black/45 leading-snug">{desc}</p>
+      </div>
+
+      <div className="mt-4 flex justify-center">
+        <Icon className="text-[#17a34a] text-[26px]" />
+      </div>
+    </div>
+  );
+}
 
 const Home = () => {
   return (
@@ -7,7 +34,7 @@ const Home = () => {
       {/* HOME / HERO */}
       <section
         id="home"
-        className="relative scroll-mt-[14vh] min-h-screen border-b border-white/10 overflow-hidden bg-[#163A3D]"
+        className="relative scroll-mt-[14vh] min-h-screen overflow-hidden bg-[#163A3D]"
       >
         {/* Background */}
         <div
@@ -52,56 +79,71 @@ const Home = () => {
       </section>
 
       {/* SOMOS + SERVICIOS (una sola placa blanca compartida) */}
-      <section
-        id="somos"
-        className="scroll-mt-[14vh] py-24 border-b border-white/10 bg-[#163A3D]"
-      >
+      <section id="somos" className="scroll-mt-[14vh] py-24 bg-[#163A3D]">
         <div className="w-[95vw] mx-auto px-5">
           {/* PLACA BLANCA */}
-          <div className="bg-[#fafafa] text-black rounded-3xl border border-black/10 shadow-lg overflow-hidden">
-            {/* SOMOS (bloque 1) */}
-            <div className="px-8 py-10 lg:px-12 lg:py-14">
-              <p className="text-sm uppercase tracking-widest text-black/50">
-                Somos
-              </p>
-              <h2 className="mt-3 text-4xl lg:text-6xl font-semibold tracking-tight">
-                Representamos, administramos y comercializamos energía.
-              </h2>
+          <div className="bg-[#fafafa] text-black/80 rounded-3xl border border-black/10 shadow-lg overflow-hidden">
+            {/* SOMOS (bloque 1) — estilo mock */}
+            <div className="px-8 pt-10 pb-12 lg:px-12 lg:pt-14 lg:pb-16">
+              {/* Header centrado: icono + "Somos Energy Partners" */}
+              <div className="flex items-center justify-center gap-3">
+                <img
+                  src="/src/assets/images/logo_noText.png"
+                  alt="Energy Partners"
+                  className="h-24 w-auto"
+                />
+                <p className="text-5xl tracking-wide mt-8 text-black/25">
+                  Somos{" "}
+                  <span className="italic font-semibold">Energy Partners</span>
+                </p>
+              </div>
 
-              {/* Placeholder layout “landing” */}
-              <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10">
+              {/* Layout principal 2 filas */}
+              <div className="mt-28 mx-20 flex flex-col gap-10 lg:gap-14 items-start text-start">
+                {/* Arriba*/}
                 <div>
-                  <p className="text-black/70 leading-relaxed">
-                    (Placeholder) Texto corto: quiénes son, qué hacen y por qué
-                    importa. Orientado a operación confiable, transparencia y
-                    cumplimiento normativo.
-                  </p>
-
-                  <div className="mt-6 space-y-2 text-black/70">
-                    <p>• Operación precisa y transparente</p>
-                    <p>• Cumplimiento CEN / CNE / SEC</p>
-                    <p>• Gestión y administración de energía</p>
-                  </div>
+                  <h2 className="text-[28px] sm:text-[32px] lg:text-5xl leading-[1.2] tracking-widest">
+                    <span className="font-bold mr-5">Guiamos</span>
+                    <span className="font-light">
+                      a las centrales de generación
+                    </span>
+                    <br />
+                    <span className="font-light mr-5">en la</span>
+                    <span className="font-bold mr-5">gestión y operación</span>
+                    <span className="font-light">de su</span>
+                    <br />
+                    <span className="font-light mr-5">producción</span>
+                    <span className="font-bold">energética</span>
+                    <span className="font-light mr-5">,</span>
+                    <span className="font-light mr-5">dentro del</span>
+                    <br />
+                    <span className="font-bold">
+                      Sistema Eléctrico Nacional
+                    </span>
+                  </h2>
                 </div>
 
-                <div className="rounded-2xl border border-black/10 bg-black/[0.03] min-h-[240px] flex items-center justify-center">
-                  <p className="text-black/40">Imagen / gráfico (placeholder)</p>
+                {/* Abajo*/}
+                <div>
+                  <p className="text-[28px] sm:text-[32px] lg:text-2xl font-light leading-[1.1] tracking-widest ml-[25vw]">
+                    Entregamos una operación precisa y transparente, alineada
+                    con la normativa vigente, que permite a cada central de
+                    generación operar con continuidad, trazabilidad y plena
+                    confianza dentro del Sistema Eléctrico Nacional.
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Divider entre bloques */}
-            <div className="h-px w-full bg-black/10" />
+            <div className="h-px mx-10 bg-black/10 mt-20" />
 
             {/* SERVICIOS (bloque 2) */}
-            <div
-              id="servicios"
-              className="px-8 py-10 lg:px-12 lg:py-14"
-            >
-              <p className="text-sm uppercase tracking-widest text-black/50">
+            <div id="servicios" className="px-8 py-10 mt-20 lg:px-12 lg:py-14">
+              <p className="text-left text-4xl uppercase tracking-wider text-[#00AA2B] underline underline-offset-8">
                 Servicios
               </p>
-              <h2 className="mt-3 text-4xl lg:text-6xl font-semibold tracking-tight">
+              <h2 className="mt-3 text-4xl lg:text-lg font-semibold tracking-tight text-left">
                 Soluciones para generadores y comercializadores
               </h2>
 
