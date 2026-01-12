@@ -68,10 +68,6 @@ a {
   animation: collapse 1s ease-out forwards;
 }
 
-* {
-  cursor: none;
-}
-
 @media (max-width: 1023px) {
   * {
     cursor: auto;

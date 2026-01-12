@@ -6,7 +6,6 @@ import NotFound from "./views/NotFound";
 import "./App.css";
 import "animate.css";
 import { ParallaxProvider } from "react-scroll-parallax";
-import CustomCursor from "./components/CustomCursor";
 import { useLenis } from "./hooks/useLenis";
 
 function App() {
@@ -15,10 +14,9 @@ function App() {
 
   return (
     <ParallaxProvider>
-      <CustomCursor label={cursorText} />
       <NavigationBar />
       <Routes>
-        <Route path="/" element={<Home setCursorText={setCursorText} />} />
+        <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </ParallaxProvider>
