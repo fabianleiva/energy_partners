@@ -10,25 +10,47 @@ import {
   HiOutlineArrowsRightLeft,
   HiOutlineClipboardDocumentCheck,
 } from "react-icons/hi2";
-
-function ServiceCard({ title, desc, Icon }) {
-  return (
-    <div className="bg-white rounded-2xl border border-black/10 shadow-[0_10px_20px_rgba(0,0,0,0.08)] px-5 pt-5 pb-4 min-h-[140px] flex flex-col justify-between">
-      <div>
-        <h3 className="text-[12px] font-semibold text-black leading-snug">
-          {title}
-        </h3>
-        <p className="mt-2 text-[10px] text-black/45 leading-snug">{desc}</p>
-      </div>
-
-      <div className="mt-4 flex justify-center">
-        <Icon className="text-[#17a34a] text-[26px]" />
-      </div>
-    </div>
-  );
-}
+import { useEffect, useRef, useState } from "react";
+import StackedAreaChart from "../components/StackedAreaChart";
 
 const Home = () => {
+  const platformRef = useRef(null);
+  const [platformInView, setPlatformInView] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > 0) setHasScrolled(true);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // por si ya estás scrolleado (reload)
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const el = platformRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // 👇 clave: no activar si aún no hay scroll del usuario
+        if (!hasScrolled) return;
+
+        if (entry.isIntersecting) {
+          setPlatformInView(true);
+          observer.disconnect(); // una sola vez
+        }
+      },
+      {
+        threshold: 0.35, // súbelo para que no dispare tan pronto
+        rootMargin: "0px 0px -20% 0px",
+      }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [hasScrolled]);
+
   return (
     <main className="relative z-10 page-fade-in text-[#fafafa]">
       {/* HOME / HERO */}
@@ -85,13 +107,11 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SOMOS + SERVICIOS (una sola placa blanca compartida) */}
+      {/* SOMOS */}
       <section id="somos" className="scroll-mt-[14vh] pt-24 bg-[#163A3D]">
         <div className="w-[94vw] mx-auto">
-          {/* PLACA BLANCA */}
           <div className="bg-[#fafafa] text-black/80 rounded-3xl border border-black/10 shadow-lg overflow-hidden">
-            {/* SOMOS (bloque 1) — estilo mock */}
-            <div className="px-8 pt-10 pb-12 lg:px-12 lg:pt-14 lg:pb-16">
+            <div className="px-8 pt-28 pb-12 lg:px-12 lg:pb-40">
               {/* Header centrado: icono + "Somos Energy Partners" */}
               <div className="flex items-center justify-center gap-3">
                 <img
@@ -141,71 +161,71 @@ const Home = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Divider entre bloques */}
-            <div className="h-px mx-10 bg-black/10 mt-20" />
+      {/* SERVICIOS */}
+      <section id="servicios" className="px-8 py-10 mt-20 lg:px-12 lg:py-14">
+        <h2 className="text-center text-2xl font-semibold uppercase tracking-wider text-[#00AA2B]">
+          Servicios
+        </h2>
 
-            {/* SERVICIOS (bloque 2) */}
-            <div id="servicios" className="px-8 py-10 mt-20 lg:px-12 lg:py-14">
-              <h2 className="text-left text-4xl font-semibold uppercase tracking-wider text-[#00AA2B] underline underline-offset-8">
-                Servicios
-              </h2>
+        <h3 className="mt-6 text-4xl lg:text-5xl font-semibold tracking-tight text-center">
+          Soluciones para generadores y comercializadores
+        </h3>
 
-              <h3 className="mt-6 text-4xl lg:text-2xl font-light tracking-tight text-left italic">
-                Soluciones para generadores y comercializadores
-              </h3>
+        <h3 className="text-4xl lg:text-5xl font-semibold tracking-tight text-center">
+          del Sistema Eléctrico Nacional
+        </h3>
 
-              <h3 className="text-4xl lg:text-2xl font-light tracking-tight text-left italic">
-                del Sistema Eléctrico Nacional
-              </h3>
-
-              {/* Grid de servicios */}
-              <div className="my-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-                {[
-                  {
-                    title: "Representación y\nAdministración de\nCentrales",
-                    desc: "Gestión operativa y\ncomercial ante el CEN",
-                    Icon: HiOutlineCog6Tooth,
-                  },
-                  {
-                    title: "Declaraciones y\nLiquidaciones MCP",
-                    desc: "Gestión operativa y\ncomercial ante el CEN",
-                    Icon: HiOutlineCheckBadge,
-                  },
-                  {
-                    title: "Reportes\nOperacionales y\nRegulatorios",
-                    desc: "Gestión operativa y\ncomercial ante el CEN",
-                    Icon: HiOutlinePresentationChartLine,
-                  },
-                  {
-                    title: "Monitoreo en\nTiempo Real",
-                    desc: "Gestión operativa y\ncomercial ante el CEN",
-                    Icon: HiOutlineSignal,
-                  },
-                  {
-                    title: "Indicadores de\nRendimiento",
-                    desc: "Gestión operativa y\ncomercial ante el CEN",
-                    Icon: HiOutlineClipboardDocumentCheck,
-                  },
-                  {
-                    title: "Facturación y\nConciliación\nHistórica",
-                    desc: "Gestión operativa y\ncomercial ante el CEN",
-                    Icon: HiOutlineDocumentText,
-                  },
-                  {
-                    title: "Compra y Venta de\nEnergía",
-                    desc: "Gestión operativa y\ncomercial ante el CEN",
-                    Icon: HiOutlineArrowsRightLeft,
-                  },
-                  {
-                    title: "Evaluación y\nValorización de\nContratos",
-                    desc: "Gestión operativa y\ncomercial ante el CEN",
-                    Icon: HiOutlineArrowPathRoundedSquare,
-                  },
-                ].map(({ title, desc, Icon }) => (
-                  <div
-                    key={title}
-                    className="
+        {/* Grid de servicios */}
+        <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-32">
+          {[
+            {
+              title: "Representación y\nAdministración de\nCentrales",
+              desc: "Gestión operativa y\ncomercial ante el CEN",
+              Icon: HiOutlineCog6Tooth,
+            },
+            {
+              title: "Declaraciones y\nLiquidaciones MCP",
+              desc: "Gestión operativa y\ncomercial ante el CEN",
+              Icon: HiOutlineCheckBadge,
+            },
+            {
+              title: "Reportes\nOperacionales y\nRegulatorios",
+              desc: "Gestión operativa y\ncomercial ante el CEN",
+              Icon: HiOutlinePresentationChartLine,
+            },
+            {
+              title: "Monitoreo en\nTiempo Real",
+              desc: "Gestión operativa y\ncomercial ante el CEN",
+              Icon: HiOutlineSignal,
+            },
+            {
+              title: "Indicadores de\nRendimiento",
+              desc: "Gestión operativa y\ncomercial ante el CEN",
+              Icon: HiOutlineClipboardDocumentCheck,
+            },
+            {
+              title: "Facturación y\nConciliación\nHistórica",
+              desc: "Gestión operativa y\ncomercial ante el CEN",
+              Icon: HiOutlineDocumentText,
+            },
+            {
+              title: "Compra y Venta de\nEnergía",
+              desc: "Gestión operativa y\ncomercial ante el CEN",
+              Icon: HiOutlineArrowsRightLeft,
+            },
+            {
+              title: "Evaluación y\nValorización de\nContratos",
+              desc: "Gestión operativa y\ncomercial ante el CEN",
+              Icon: HiOutlineArrowPathRoundedSquare,
+            },
+          ].map(({ title, desc, Icon }) => (
+            <div
+              key={title}
+              className="
           rounded-2xl bg-white
           border border-black/10
           shadow-[0_18px_40px_rgba(0,0,0,0.12)]
@@ -215,57 +235,92 @@ const Home = () => {
           transition-all duration-300
           hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(0,0,0,0.16)]
         "
-                  >
-                    <div className="w-full max-w-[260px] mx-auto">
-                      <p className="text-xl font-semibold leading-snug text-[#1A1C1D] whitespace-pre-line">
-                        {title}
-                      </p>
+            >
+              <div className="w-full max-w-[260px] mx-auto">
+                <p className="text-xl font-semibold leading-snug text-[#1A1C1D] whitespace-pre-line">
+                  {title}
+                </p>
 
-                      <p className="mt-4 text-lg leading-relaxed text-black/40 whitespace-pre-line">
-                        {desc}
-                      </p>
-                    </div>
-
-                    <Icon className="mt-8 text-[#00AA2B] text-[60px]" />
-                  </div>
-                ))}
+                <p className="mt-4 text-lg leading-relaxed text-black/40 whitespace-pre-line">
+                  {desc}
+                </p>
               </div>
+
+              <Icon className="mt-8 text-[#00AA2B] text-[60px]" />
             </div>
-          </div>
+          ))}
         </div>
       </section>
 
       {/* PLATAFORMA */}
       <section
         id="plataforma"
-        className="scroll-mt-[14vh] px-8 py-10 lg:px-12 lg:py-14 border-b border-white/10"
+        ref={platformRef}
+        className="scroll-mt-[14vh] px-8 py-10 lg:px-12 lg:py-20 border-b border-white/10"
       >
-        <div className="w-[94vw] mx-auto">
-          <div className="px-8 py-10 lg:px-12 lg:py-14">
-            <h2 className="text-left text-4xl font-semibold uppercase tracking-wider text-[#00AA2B] underline underline-offset-8">
-              Plataforma
-            </h2>
+        <div className="bg-[#fafafa] text-black/80 rounded-3xl border border-black/10 shadow-lg overflow-hidden">
+          <div className="w-[94vw] mx-auto">
+            <div className="px-8 py-10 lg:px-12 lg:pt-28">
+              <h2 className="text-center text-2xl font-semibold uppercase tracking-wider text-[#00AA2B]">
+                Plataforma
+              </h2>
 
-            <h3 className="mt-6 text-4xl lg:text-2xl font-light tracking-tight text-left italic">
-              Integración directa con CEN y monitoreo en tiempo real
-            </h3>
+              <h3 className="mt-6 text-4xl lg:text-5xl font-semibold tracking-tight text-center">
+                Integración directa con CEN y monitoreo en tiempo real
+              </h3>
 
-            <h3 className="text-4xl lg:text-2xl font-light tracking-tight text-left italic">
-              para una operación energética más eficiente
-            </h3>
-          </div>
-          <div className="px-8 py-10 lg:px-12 lg:pb-14 tracking-wide space-y-8">
-            {/* <p className="text-[28px] sm:text-[32px] lg:text-2xl font-semibold leading-[1.1] tracking-widest text-left max-w-[70vw] pb-12">
-              Nuestra plataforma operacional se integra directamente con los
-              sistemas del Coordinador Eléctrico Nacional para gestionar el
-              Mercado de Corto Plazo, automatizar procesos y garantizar una
-              operación confiable. Permite administrar declaraciones,
-              liquidaciones, reportes y datos operativos con trazabilidad
-              completa.
-            </p> */}
-            <h3 className="text-4xl lg:text-2xl font-bold uppercase tracking-widest text-left">
-              Monitoreo en Tiempo Real
-            </h3>
+              <h3 className="text-4xl lg:text-5xl font-semibold tracking-tight text-center">
+                para una operación energética más eficiente
+              </h3>
+            </div>
+
+            {/* Monitoreo en tiempo real */}
+            <div className="px-8 py-10 lg:px-12 lg:py-14">
+              <h3 className="text-4xl lg:text-xl font-semibold tracking-tight text-center">
+                Monitoreo en Tiempo Real
+              </h3>
+              <div className="px-8 py-10 lg:px-12 lg:pb-14">
+                {platformInView ? (
+                  <StackedAreaChart />
+                ) : (
+                  <div className="h-[340px]" />
+                )}
+              </div>
+              <div className="text-right px-8 lg:px-12">
+                <p>Lectura horaria de generación y retiros.</p>
+                <p>Actualización continua de variables operativas.</p>
+                <p>Seguimiento del costo marginal por barra.</p>
+                <p>Tendencias para anticipar desvíos operacionales.</p>
+              </div>
+            </div>
+
+            {/* Distribución Operativa */}
+            <div className="px-8 py-10 lg:px-12 lg:py-14">
+              <h3 className="text-4xl lg:text-xl font-semibold tracking-tight text-center">
+                Distribución Operativa
+              </h3>
+              <div className="px-8 py-10 lg:px-12 lg:pb-14">
+                {platformInView ? (
+                  <StackedAreaChart />
+                ) : (
+                  <div className="h-[340px]" />
+                )}
+              </div>
+            </div>
+
+            {/* Indicadores de Rendimiento */}
+            <div className="px-8 py-10 lg:px-12 lg:py-14">
+              <h3 className="text-4xl lg:text-xl font-semibold tracking-tight text-center">
+                Indicadores de Rendimiento
+              </h3>
+              <div className="px-8 py-10 lg:px-12 lg:pb-14">
+                {platformInView ? (
+                  <StackedAreaChart />
+                ) : (
+                  <div className="h-[340px]" />
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </section>
