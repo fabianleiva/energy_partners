@@ -38,7 +38,7 @@ const Home = () => {
       >
         {/* Background */}
         <div
-          className="absolute inset-0 pointer-events-none"
+          className="absolute inset-0 pointer-events-none blur-[0.5px] brightness-75"
           style={{
             backgroundImage: `url(${bg3})`,
             backgroundRepeat: "no-repeat",
@@ -53,19 +53,26 @@ const Home = () => {
         {/* Contenido */}
         <div className="relative z-10 max-w-[90vw] mx-auto px-5">
           <div className="min-h-[100vh] flex flex-col justify-center text-left">
-            <h1 className="mt-3 text-5xl lg:text-7xl font-semibold tracking-tight">
+            <h1 className="mt-3 text-5xl lg:text-7xl font-semibold tracking-wide">
               Experiencia,{" "}
             </h1>
-            <h1 className="mt-3 text-5xl lg:text-7xl font-semibold tracking-tight">
-              precisión y tecnología{" "}
+            <h1 className="mt-3 text-5xl lg:text-7xl font-semibold tracking-wide">
+              precisión y{" "}
             </h1>
-            <h1 className="mt-3 text-5xl lg:text-5xl tracking-tight">
-              al servicio del{" "}
-            </h1>
-            <h1 className="mt-3 text-5xl lg:text-5xl tracking-tight">
+
+            <div className="flex items-baseline">
+              <h1 className="mt-3 text-5xl lg:text-7xl font-semibold tracking-wide mr-5">
+                tecnología{" "}
+              </h1>{" "}
+              <h1 className="mt-3 text-5xl lg:text-5xl tracking-wide font-light">
+                al servicio del{" "}
+              </h1>
+            </div>
+
+            <h1 className="mt-3 text-5xl lg:text-5xl tracking-wide font-light">
               Sistema eléctrico Nacional{" "}
             </h1>
-            <p className="text-lg max-w-2xl mt-16 tracking-wider text-[#fafafa]/60">
+            <p className="text-lg max-w-2xl mt-16 tracking-widest text-[#fafafa]/60">
               Representamos, administramos y comercializamos energía con una
               operación confiable, transparente y alineada a los estándares del
               CEN, CNE y SEC.
@@ -105,7 +112,7 @@ const Home = () => {
                   <h2 className="text-[28px] sm:text-[32px] lg:text-5xl leading-[1.2] tracking-widest">
                     <span className="font-bold mr-5">Guiamos</span>
                     <span className="font-light">
-                      a las centrales de generación
+                      a centrales de generación
                     </span>
                     <br />
                     <span className="font-light mr-5">en la</span>
@@ -138,37 +145,93 @@ const Home = () => {
             {/* Divider entre bloques */}
             <div className="h-px mx-10 bg-black/10 mt-20" />
 
-            {/* SERVICIOS (bloque 2) */}
-            <div id="servicios" className="px-8 py-10 mt-20 lg:px-12 lg:py-14">
-              <p className="text-left text-4xl uppercase tracking-wider text-[#00AA2B] underline underline-offset-8">
-                Servicios
-              </p>
-              <h2 className="mt-3 text-4xl lg:text-lg font-semibold tracking-tight text-left">
-                Soluciones para generadores y comercializadores
-              </h2>
+{/* SERVICIOS (bloque 2) */}
+<div id="servicios" className="px-8 py-10 mt-20 lg:px-12 lg:py-14">
+  <p className="text-left text-5xl uppercase tracking-wider text-[#00AA2B] underline underline-offset-8">
+    Servicios
+  </p>
 
-              {/* Grid de servicios (placeholder) */}
-              <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {[
-                  "Representación y coordinación",
-                  "Liquidaciones y procesos",
-                  "Reportes y compliance",
-                  "Monitoreo en tiempo real",
-                  "Indicadores y desempeño",
-                  "Gestión operativa",
-                ].map((t) => (
-                  <div
-                    key={t}
-                    className="rounded-2xl border border-black/10 bg-white p-6"
-                  >
-                    <p className="font-semibold">{t}</p>
-                    <p className="mt-2 text-sm text-black/60">
-                      Descripción corta (placeholder) del servicio.
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+  <h2 className="mt-6 text-4xl lg:text-2xl font-light tracking-tight text-left italic">
+    Soluciones para generadores y comercializadores
+  </h2>
+
+    <h2 className="text-4xl lg:text-2xl font-light tracking-tight text-left italic">
+    del Sistema Eléctrico Nacional
+  </h2>
+
+  {/* Grid de servicios */}
+  <div className="mt-28 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    {[
+      {
+        title: "Representación y\nAdministración de\nCentrales",
+        desc: "Gestión operativa y\ncomercial ante el CEN",
+        Icon: HiOutlineCog6Tooth,
+      },
+      {
+        title: "Declaraciones y\nLiquidaciones MCP",
+        desc: "Gestión operativa y\ncomercial ante el CEN",
+        Icon: HiOutlineCheckBadge,
+      },
+      {
+        title: "Reportes\nOperacionales y\nRegulatorios",
+        desc: "Gestión operativa y\ncomercial ante el CEN",
+        Icon: HiOutlinePresentationChartLine,
+      },
+      {
+        title: "Monitoreo en\nTiempo Real",
+        desc: "Gestión operativa y\ncomercial ante el CEN",
+        Icon: HiOutlineSignal,
+      },
+      {
+        title: "Indicadores de\nRendimiento",
+        desc: "Gestión operativa y\ncomercial ante el CEN",
+        Icon: HiOutlineClipboardDocumentCheck,
+      },
+      {
+        title: "Facturación y\nConciliación\nHistórica",
+        desc: "Gestión operativa y\ncomercial ante el CEN",
+        Icon: HiOutlineDocumentText,
+      },
+      {
+        title: "Compra y Venta de\nEnergía",
+        desc: "Gestión operativa y\ncomercial ante el CEN",
+        Icon: HiOutlineArrowsRightLeft,
+      },
+      {
+        title: "Evaluación y\nValorización de\nContratos",
+        desc: "Gestión operativa y\ncomercial ante el CEN",
+        Icon: HiOutlineArrowPathRoundedSquare,
+      },
+    ].map(({ title, desc, Icon }) => (
+      <div
+        key={title}
+        className="
+          rounded-2xl bg-white
+          border border-black/10
+          shadow-[0_18px_40px_rgba(0,0,0,0.12)]
+          px-8 pt-8 pb-9
+          min-h-[230px]
+          flex flex-col items-center justify-between text-center
+          transition-all duration-300
+          hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(0,0,0,0.16)]
+        "
+      >
+        <div className="w-full max-w-[260px] mx-auto">
+          <p className="text-xl font-semibold leading-snug text-[#1A1C1D] whitespace-pre-line">
+            {title}
+          </p>
+
+          <p className="mt-4 text-lg leading-relaxed text-black/40 whitespace-pre-line">
+            {desc}
+          </p>
+        </div>
+
+        <Icon className="mt-8 text-[#00AA2B] text-[60px]" />
+      </div>
+    ))}
+  </div>
+</div>
+
           </div>
         </div>
       </section>
