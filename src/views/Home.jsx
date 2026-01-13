@@ -86,8 +86,8 @@ const Home = () => {
       </section>
 
       {/* SOMOS + SERVICIOS (una sola placa blanca compartida) */}
-      <section id="somos" className="scroll-mt-[14vh] py-24 bg-[#163A3D]">
-        <div className="w-[95vw] mx-auto px-5">
+      <section id="somos" className="scroll-mt-[14vh] pt-24 bg-[#163A3D]">
+        <div className="w-[94vw] mx-auto">
           {/* PLACA BLANCA */}
           <div className="bg-[#fafafa] text-black/80 rounded-3xl border border-black/10 shadow-lg overflow-hidden">
             {/* SOMOS (bloque 1) — estilo mock */}
@@ -145,67 +145,67 @@ const Home = () => {
             {/* Divider entre bloques */}
             <div className="h-px mx-10 bg-black/10 mt-20" />
 
-{/* SERVICIOS (bloque 2) */}
-<div id="servicios" className="px-8 py-10 mt-20 lg:px-12 lg:py-14">
-  <p className="text-left text-5xl uppercase tracking-wider text-[#00AA2B] underline underline-offset-8">
-    Servicios
-  </p>
+            {/* SERVICIOS (bloque 2) */}
+            <div id="servicios" className="px-8 py-10 mt-20 lg:px-12 lg:py-14">
+              <h2 className="text-left text-4xl font-semibold uppercase tracking-wider text-[#00AA2B] underline underline-offset-8">
+                Servicios
+              </h2>
 
-  <h2 className="mt-6 text-4xl lg:text-2xl font-light tracking-tight text-left italic">
-    Soluciones para generadores y comercializadores
-  </h2>
+              <h3 className="mt-6 text-4xl lg:text-2xl font-light tracking-tight text-left italic">
+                Soluciones para generadores y comercializadores
+              </h3>
 
-    <h2 className="text-4xl lg:text-2xl font-light tracking-tight text-left italic">
-    del Sistema Eléctrico Nacional
-  </h2>
+              <h3 className="text-4xl lg:text-2xl font-light tracking-tight text-left italic">
+                del Sistema Eléctrico Nacional
+              </h3>
 
-  {/* Grid de servicios */}
-  <div className="mt-28 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-    {[
-      {
-        title: "Representación y\nAdministración de\nCentrales",
-        desc: "Gestión operativa y\ncomercial ante el CEN",
-        Icon: HiOutlineCog6Tooth,
-      },
-      {
-        title: "Declaraciones y\nLiquidaciones MCP",
-        desc: "Gestión operativa y\ncomercial ante el CEN",
-        Icon: HiOutlineCheckBadge,
-      },
-      {
-        title: "Reportes\nOperacionales y\nRegulatorios",
-        desc: "Gestión operativa y\ncomercial ante el CEN",
-        Icon: HiOutlinePresentationChartLine,
-      },
-      {
-        title: "Monitoreo en\nTiempo Real",
-        desc: "Gestión operativa y\ncomercial ante el CEN",
-        Icon: HiOutlineSignal,
-      },
-      {
-        title: "Indicadores de\nRendimiento",
-        desc: "Gestión operativa y\ncomercial ante el CEN",
-        Icon: HiOutlineClipboardDocumentCheck,
-      },
-      {
-        title: "Facturación y\nConciliación\nHistórica",
-        desc: "Gestión operativa y\ncomercial ante el CEN",
-        Icon: HiOutlineDocumentText,
-      },
-      {
-        title: "Compra y Venta de\nEnergía",
-        desc: "Gestión operativa y\ncomercial ante el CEN",
-        Icon: HiOutlineArrowsRightLeft,
-      },
-      {
-        title: "Evaluación y\nValorización de\nContratos",
-        desc: "Gestión operativa y\ncomercial ante el CEN",
-        Icon: HiOutlineArrowPathRoundedSquare,
-      },
-    ].map(({ title, desc, Icon }) => (
-      <div
-        key={title}
-        className="
+              {/* Grid de servicios */}
+              <div className="my-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                {[
+                  {
+                    title: "Representación y\nAdministración de\nCentrales",
+                    desc: "Gestión operativa y\ncomercial ante el CEN",
+                    Icon: HiOutlineCog6Tooth,
+                  },
+                  {
+                    title: "Declaraciones y\nLiquidaciones MCP",
+                    desc: "Gestión operativa y\ncomercial ante el CEN",
+                    Icon: HiOutlineCheckBadge,
+                  },
+                  {
+                    title: "Reportes\nOperacionales y\nRegulatorios",
+                    desc: "Gestión operativa y\ncomercial ante el CEN",
+                    Icon: HiOutlinePresentationChartLine,
+                  },
+                  {
+                    title: "Monitoreo en\nTiempo Real",
+                    desc: "Gestión operativa y\ncomercial ante el CEN",
+                    Icon: HiOutlineSignal,
+                  },
+                  {
+                    title: "Indicadores de\nRendimiento",
+                    desc: "Gestión operativa y\ncomercial ante el CEN",
+                    Icon: HiOutlineClipboardDocumentCheck,
+                  },
+                  {
+                    title: "Facturación y\nConciliación\nHistórica",
+                    desc: "Gestión operativa y\ncomercial ante el CEN",
+                    Icon: HiOutlineDocumentText,
+                  },
+                  {
+                    title: "Compra y Venta de\nEnergía",
+                    desc: "Gestión operativa y\ncomercial ante el CEN",
+                    Icon: HiOutlineArrowsRightLeft,
+                  },
+                  {
+                    title: "Evaluación y\nValorización de\nContratos",
+                    desc: "Gestión operativa y\ncomercial ante el CEN",
+                    Icon: HiOutlineArrowPathRoundedSquare,
+                  },
+                ].map(({ title, desc, Icon }) => (
+                  <div
+                    key={title}
+                    className="
           rounded-2xl bg-white
           border border-black/10
           shadow-[0_18px_40px_rgba(0,0,0,0.12)]
@@ -215,23 +215,22 @@ const Home = () => {
           transition-all duration-300
           hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(0,0,0,0.16)]
         "
-      >
-        <div className="w-full max-w-[260px] mx-auto">
-          <p className="text-xl font-semibold leading-snug text-[#1A1C1D] whitespace-pre-line">
-            {title}
-          </p>
+                  >
+                    <div className="w-full max-w-[260px] mx-auto">
+                      <p className="text-xl font-semibold leading-snug text-[#1A1C1D] whitespace-pre-line">
+                        {title}
+                      </p>
 
-          <p className="mt-4 text-lg leading-relaxed text-black/40 whitespace-pre-line">
-            {desc}
-          </p>
-        </div>
+                      <p className="mt-4 text-lg leading-relaxed text-black/40 whitespace-pre-line">
+                        {desc}
+                      </p>
+                    </div>
 
-        <Icon className="mt-8 text-[#00AA2B] text-[60px]" />
-      </div>
-    ))}
-  </div>
-</div>
-
+                    <Icon className="mt-8 text-[#00AA2B] text-[60px]" />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -239,16 +238,35 @@ const Home = () => {
       {/* PLATAFORMA */}
       <section
         id="plataforma"
-        className="scroll-mt-[14vh] py-24 border-b border-white/10 bg-[#163A3D]"
+        className="scroll-mt-[14vh] px-8 py-10 lg:px-12 lg:py-14 border-b border-white/10"
       >
-        <div className="max-w-6xl mx-auto px-5">
-          <p className="text-sm uppercase tracking-widest text-[#fafafa]/60">
-            Plataforma
-          </p>
-          <h2 className="mt-3 text-4xl lg:text-6xl font-semibold tracking-tight">
-            Monitoreo, reportes y trazabilidad
-          </h2>
-          <div className="mt-12 rounded-2xl border border-white/10 p-8 min-h-[400px]" />
+        <div className="w-[94vw] mx-auto">
+          <div className="px-8 py-10 lg:px-12 lg:py-14">
+            <h2 className="text-left text-4xl font-semibold uppercase tracking-wider text-[#00AA2B] underline underline-offset-8">
+              Plataforma
+            </h2>
+
+            <h3 className="mt-6 text-4xl lg:text-2xl font-light tracking-tight text-left italic">
+              Integración directa con CEN y monitoreo en tiempo real
+            </h3>
+
+            <h3 className="text-4xl lg:text-2xl font-light tracking-tight text-left italic">
+              para una operación energética más eficiente
+            </h3>
+          </div>
+          <div className="px-8 py-10 lg:px-12 lg:pb-14 tracking-wide space-y-8">
+            {/* <p className="text-[28px] sm:text-[32px] lg:text-2xl font-semibold leading-[1.1] tracking-widest text-left max-w-[70vw] pb-12">
+              Nuestra plataforma operacional se integra directamente con los
+              sistemas del Coordinador Eléctrico Nacional para gestionar el
+              Mercado de Corto Plazo, automatizar procesos y garantizar una
+              operación confiable. Permite administrar declaraciones,
+              liquidaciones, reportes y datos operativos con trazabilidad
+              completa.
+            </p> */}
+            <h3 className="text-4xl lg:text-2xl font-bold uppercase tracking-widest text-left">
+              Monitoreo en Tiempo Real
+            </h3>
+          </div>
         </div>
       </section>
 
