@@ -14,6 +14,12 @@ import { useEffect, useRef, useState } from "react";
 import StackedAreaChart from "../components/StackedAreaChart";
 import BubbleChart from "../components/BubbleChart";
 import SimpleBarChart from "../components/SimpleBarChart";
+import enel from "../assets/images/enel.png";
+import ferrero from "../assets/images/ferrero.png";
+import gami from "../assets/images/gami.png";
+import genersur from "../assets/images/genersur.png";
+import grpower from "../assets/images/grpower.png";
+import novasurLogo from "../assets/images/Logo NovaSur_transparent.png";
 
 const Home = () => {
   const platformRef = useRef(null);
@@ -378,14 +384,84 @@ const Home = () => {
       {/* CLIENTES */}
       <section
         id="clientes"
-        className="scroll-mt-[14vh] min-h-[55vh] py-24 bg-[#163A3D]"
+        className="scroll-mt-[14vh] py-24 bg-[#163A3D] overflow-hidden"
       >
+        <div className="max-w-6xl mx-auto px-5">
           <h2 className="text-center text-2xl font-semibold uppercase tracking-wider text-[#00AA2B]">
             Clientes
           </h2>
-          <h3 className="mt-6 text-4xl lg:text-5xl font-semibold tracking-tight text-center">
+          <h3 className="mt-6 text-4xl lg:text-5xl font-semibold tracking-tight text-center text-[#fafafa]">
             Empresas que confían en nuestra gestión
           </h3>
+
+          {/* Carrusel */}
+          <div className="mt-16 relative">
+            {/* Fade laterales (opcional, se ve pro) */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#163A3D] to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#163A3D] to-transparent z-10" />
+
+            <div className="marquee">
+              <div className="marquee__track">
+                {/* Lista 1 */}
+                {[enel, ferrero, gami, genersur, grpower].map((src, i) => (
+                  <div key={`a-${i}`} className="marquee__item">
+                    <img
+                      src={src}
+                      alt={`Cliente ${i + 1}`}
+                      className="h-12 lg:h-14 w-auto opacity-85 hover:opacity-100 transition-opacity duration-300"
+                      draggable={false}
+                    />
+                  </div>
+                ))}
+
+                {/* Lista 2 (duplicada para loop infinito) */}
+                {[enel, ferrero, gami, genersur, grpower].map((src, i) => (
+                  <div key={`b-${i}`} className="marquee__item">
+                    <img
+                      src={src}
+                      alt={`Cliente ${i + 1}`}
+                      className="h-12 lg:h-14 w-auto opacity-85 hover:opacity-100 transition-opacity duration-300"
+                      draggable={false}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Botón/píldora */}
+          <div className="mt-36 mb-20 flex flex-col items-center">
+            {/* <p className="mb-6">Main Partner</p> */}
+            <a
+              href="https://novasur.cl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+      group
+      w-full max-w-[520px]
+      bg-white
+      rounded-full
+      px-10 py-7
+      shadow-[0_24px_60px_rgba(0,0,0,0.25)]
+      border border-black/10
+      flex items-center justify-center
+      transition-transform duration-300
+      hover:-translate-y-[2px]
+      active:translate-y-0
+    "
+              aria-label="Ir a Energías Novasur"
+            >
+              <img
+                src={novasurLogo}
+                alt="Energías Novasur"
+                className="h-14 md:h-16 w-auto"
+                draggable="false"
+              />
+            </a>
+
+            <p className="mt-6 italic text-white/55 text-sm">Haz click aquí</p>
+          </div>
+        </div>
       </section>
 
       {/* CONTACTO */}

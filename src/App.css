@@ -196,3 +196,41 @@ html::-webkit-scrollbar {
 .page-fade-in {
   animation: fadeInFast 1.2s ease forwards;
 }
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee__track {
+  display: flex;
+  align-items: center;
+  gap: 64px;              /* separación entre logos */
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.marquee__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+  /* todos “del mismo tamaño” visual: misma altura, ancho auto */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* mueve exactamente el ancho de la primera lista */
+    transform: translateX(-50%);
+  }
+}
+
+/* Respeta usuarios que prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    animation: none;
+  }
+}
