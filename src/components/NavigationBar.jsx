@@ -91,9 +91,9 @@ const NavigationBar = () => {
               className="flex items-center"
             >
               <img
-                src="/src/assets/images/logo_ep_1.png"
+                src="/src/assets/images/svg_logo_ep_1.png"
                 alt="Energy Partners"
-                className="max-w-80"
+                className="max-w-40 lg:max-w-80"
               />
             </button>
           </div>
@@ -139,18 +139,18 @@ const NavigationBar = () => {
 
       {/* MENÚ MOBILE */}
       <div
-        className={`lg:hidden fixed inset-0 bg-[#0e1620] z-[90] flex flex-col items-center justify-center transition-opacity duration-500 ${
+        className={`lg:hidden fixed inset-0 bg-[#163A3D] z-[90] flex flex-col items-center justify-center transition-opacity duration-500 ${
           showInfoText
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
       >
-        <LinkBtn id="home" label="Home" className="text-2xl mb-6" />
-        <LinkBtn id="somos" label="Somos" className="text-2xl mb-6" />
-        <LinkBtn id="servicios" label="Servicios" className="text-2xl mb-6" />
-        <LinkBtn id="plataforma" label="Plataforma" className="text-2xl mb-6" />
-        <LinkBtn id="clientes" label="Clientes" className="text-2xl mb-6" />
-        <LinkBtn id="contacto" label="Contacto" className="text-2xl" />
+        <LinkBtn id="home" label="Home" className="text-4xl mb-6" />
+        <LinkBtn id="somos" label="Somos" className="text-4xl mb-6" />
+        <LinkBtn id="servicios" label="Servicios" className="text-4xl mb-6" />
+        <LinkBtn id="plataforma" label="Plataforma" className="text-4xl mb-6" />
+        <LinkBtn id="clientes" label="Clientes" className="text-4xl mb-6" />
+        <LinkBtn id="contacto" label="Contacto" className="text-4xl" />
       </div>
     </header>
   );
