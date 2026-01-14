@@ -526,7 +526,7 @@ const Home = () => {
           <p className="text-center text-2xl font-semibold uppercase tracking-wider text-[#00AA2B]">
             Contacto
           </p>
-          <h2 className="mt-6 text-4xl lg:text-5xl font-semibold tracking-tight text-center text-[#fafafa]">
+          <h2 className="mt-6 text-4xl lg:text-5xl font-semibold tracking-tight text-center text-black/80">
             Hablemos
           </h2>
 
