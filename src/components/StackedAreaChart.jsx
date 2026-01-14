@@ -21,7 +21,7 @@ const data = [
 
 const StackedAreaChart = () => {
   return (
-    <div className="w-full max-w-[95vw] h-[360px] mx-auto">
+    <div className="w-full max-w-[94vw] h-[360px] mx-auto">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart
           data={data}

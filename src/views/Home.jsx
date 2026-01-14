@@ -12,6 +12,8 @@ import {
 } from "react-icons/hi2";
 import { useEffect, useRef, useState } from "react";
 import StackedAreaChart from "../components/StackedAreaChart";
+import BubbleChart from "../components/BubbleChart";
+import SimpleBarChart from "../components/SimpleBarChart";
 
 const Home = () => {
   const platformRef = useRef(null);
@@ -22,8 +24,14 @@ const Home = () => {
     const onScroll = () => {
       if (window.scrollY > 0) setHasScrolled(true);
     };
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll(); // por si ya estás scrolleado (reload)
+
+    // 👇 esperar 1 frame para que el navegador restaure scroll
+    requestAnimationFrame(() => {
+      onScroll();
+    });
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -33,23 +41,20 @@ const Home = () => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // 👇 clave: no activar si aún no hay scroll del usuario
-        if (!hasScrolled) return;
-
         if (entry.isIntersecting) {
           setPlatformInView(true);
-          observer.disconnect(); // una sola vez
+          observer.disconnect();
         }
       },
       {
-        threshold: 0.35, // súbelo para que no dispare tan pronto
-        rootMargin: "0px 0px -20% 0px",
+        threshold: 0.1,
+        rootMargin: "200px 0px 200px 0px",
       }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [hasScrolled]);
+  }, []);
 
   return (
     <main className="relative z-10 page-fade-in text-[#fafafa]">
@@ -256,7 +261,7 @@ const Home = () => {
       <section
         id="plataforma"
         ref={platformRef}
-        className="scroll-mt-[14vh] px-8 py-10 lg:px-12 lg:py-20 border-b border-white/10"
+        className="scroll-mt-[14vh] px-8 py-10 lg:px-12 lg:py-20"
       >
         <div className="bg-[#fafafa] text-black/80 rounded-3xl border border-black/10 shadow-lg overflow-hidden">
           <div className="w-[94vw] mx-auto">
@@ -276,49 +281,94 @@ const Home = () => {
 
             {/* Monitoreo en tiempo real */}
             <div className="px-8 py-10 lg:px-12 lg:py-14">
-              <h3 className="text-4xl lg:text-xl font-semibold tracking-tight text-center">
-                Monitoreo en Tiempo Real
-              </h3>
-              <div className="px-8 py-10 lg:px-12 lg:pb-14">
-                {platformInView ? (
-                  <StackedAreaChart />
-                ) : (
-                  <div className="h-[340px]" />
-                )}
-              </div>
-              <div className="text-right px-8 lg:px-12">
-                <p>Lectura horaria de generación y retiros.</p>
-                <p>Actualización continua de variables operativas.</p>
-                <p>Seguimiento del costo marginal por barra.</p>
-                <p>Tendencias para anticipar desvíos operacionales.</p>
+              {/* Contenedor 2 columnas en desktop, 1 columna en mobile */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                {/* IZQUIERDA (1/4 aprox) */}
+                <div className="lg:col-span-3 text-center">
+                  <h3 className="text-3xl lg:text-2xl font-semibold tracking-tight leading-tight mb-10">
+                    Monitoreo
+                    <br />
+                    en Tiempo Real
+                  </h3>
+
+                  <div className="mt-6 space-y-3 text-black/60 text-md leading-relaxed">
+                    <p>Lectura horaria de generación y retiros.</p>
+                    <p>Actualización continua de variables operativas.</p>
+                    <p>Seguimiento del costo marginal por barra.</p>
+                    <p>Tendencias para anticipar desvíos operacionales.</p>
+                  </div>
+                </div>
+
+                {/* DERECHA (3/4 aprox) */}
+                <div className="lg:col-span-9">
+                  {platformInView ? (
+                    <StackedAreaChart />
+                  ) : (
+                    <div className="h-[360px] w-full" />
+                  )}
+                </div>
               </div>
             </div>
 
             {/* Distribución Operativa */}
             <div className="px-8 py-10 lg:px-12 lg:py-14">
-              <h3 className="text-4xl lg:text-xl font-semibold tracking-tight text-center">
-                Distribución Operativa
-              </h3>
-              <div className="px-8 py-10 lg:px-12 lg:pb-14">
-                {platformInView ? (
-                  <StackedAreaChart />
-                ) : (
-                  <div className="h-[340px]" />
-                )}
+              {/* Contenedor 2 columnas en desktop, 1 columna en mobile */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                {/* IZQUIERDA (3/4 aprox) */}
+                <div className="lg:col-span-9">
+                  {platformInView ? (
+                    <BubbleChart />
+                  ) : (
+                    <div className="h-[360px] w-full" />
+                  )}
+                </div>
+                {/* DERECHA (1/4 aprox) */}
+                <div className="lg:col-span-3 text-center">
+                  <h3 className="text-3xl lg:text-2xl font-semibold tracking-tight leading-tight mb-10">
+                    Distribución
+                    <br />
+                    Operativa
+                  </h3>
+
+                  <div className="mt-6 space-y-3 text-black/60 text-md leading-relaxed">
+                    <p>Participación por central y unidad.</p>
+                    <p>Composición física de inyecciones y retiros.</p>
+                    <p>Balance energético del sistema.</p>
+                    <p>Comparación proporciones entre activos.</p>
+                    <p></p>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Indicadores de Rendimiento */}
             <div className="px-8 py-10 lg:px-12 lg:py-14">
-              <h3 className="text-4xl lg:text-xl font-semibold tracking-tight text-center">
-                Indicadores de Rendimiento
-              </h3>
-              <div className="px-8 py-10 lg:px-12 lg:pb-14">
-                {platformInView ? (
-                  <StackedAreaChart />
-                ) : (
-                  <div className="h-[340px]" />
-                )}
+              {/* Contenedor 2 columnas en desktop, 1 columna en mobile */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                {/* IZQUIERDA (1/4 aprox) */}
+                <div className="lg:col-span-3 text-center">
+                  <h3 className="text-3xl lg:text-2xl font-semibold tracking-tight leading-tight mb-10">
+                    Indicadores
+                    <br />
+                    de Rendimiento
+                  </h3>
+
+                  <div className="mt-6 space-y-3 text-black/60 text-md leading-relaxed">
+                    <p>Comparativo de potencia programada vs. realizada.</p>
+                    <p>Indicadores de eficiencia operativa.</p>
+                    <p>Análisis de desempeño por central.</p>
+                    <p>Detección de desvíos respecto al presupuesto.</p>
+                  </div>
+                </div>
+
+                {/* DERECHA (3/4 aprox) */}
+                <div className="lg:col-span-9">
+                  {platformInView ? (
+                    <SimpleBarChart />
+                  ) : (
+                    <div className="h-[360px] w-full" />
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -328,34 +378,119 @@ const Home = () => {
       {/* CLIENTES */}
       <section
         id="clientes"
-        className="scroll-mt-[14vh] min-h-[55vh] py-24 border-b border-white/10 bg-[#163A3D]"
+        className="scroll-mt-[14vh] min-h-[55vh] py-24 bg-[#163A3D]"
       >
-        <div className="max-w-6xl mx-auto px-5">
-          <p className="text-sm uppercase tracking-widest text-[#fafafa]/60">
+          <h2 className="text-center text-2xl font-semibold uppercase tracking-wider text-[#00AA2B]">
             Clientes
-          </p>
-          <h2 className="mt-3 text-4xl lg:text-6xl font-semibold tracking-tight">
-            Empresas que confían en nuestra gestión
           </h2>
-        </div>
+          <h3 className="mt-6 text-4xl lg:text-5xl font-semibold tracking-tight text-center">
+            Empresas que confían en nuestra gestión
+          </h3>
       </section>
 
       {/* CONTACTO */}
       <section
         id="contacto"
-        className="scroll-mt-[14vh] min-h-[70vh] py-24 bg-[#163A3D]"
+        className="scroll-mt-[14vh] min-h-[70vh] py-24 bg-[#9d9d9d]"
       >
-        <div className="max-w-6xl mx-auto px-5">
-          <p className="text-sm uppercase tracking-widest text-[#fafafa]/60">
-            Contacto
-          </p>
-          <h2 className="mt-3 text-4xl lg:text-6xl font-semibold tracking-tight">
-            Hablemos
-          </h2>
-        </div>
+        <p className="text-sm uppercase tracking-widest text-[#fafafa]/60">
+          Contacto
+        </p>
+        <h2 className="mt-3 text-4xl lg:text-6xl font-semibold tracking-tight">
+          Hablemos
+        </h2>
       </section>
     </main>
   );
 };
 
 export default Home;
+
+{
+  /* SERVICIOS */
+}
+<section id="servicios" className="px-8 py-10 mt-20 lg:px-12 lg:py-14">
+  <h2 className="text-center text-2xl font-semibold uppercase tracking-wider text-[#00AA2B]">
+    Servicios
+  </h2>
+
+  <h3 className="mt-6 text-4xl lg:text-5xl font-semibold tracking-tight text-center">
+    Soluciones para generadores y comercializadores
+  </h3>
+
+  <h3 className="text-4xl lg:text-5xl font-semibold tracking-tight text-center">
+    del Sistema Eléctrico Nacional
+  </h3>
+
+  {/* Grid de servicios */}
+  <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-32">
+    {[
+      {
+        title: "Representación y\nAdministración de\nCentrales",
+        desc: "Gestión operativa y\ncomercial ante el CEN",
+        Icon: HiOutlineCog6Tooth,
+      },
+      {
+        title: "Declaraciones y\nLiquidaciones MCP",
+        desc: "Gestión operativa y\ncomercial ante el CEN",
+        Icon: HiOutlineCheckBadge,
+      },
+      {
+        title: "Reportes\nOperacionales y\nRegulatorios",
+        desc: "Gestión operativa y\ncomercial ante el CEN",
+        Icon: HiOutlinePresentationChartLine,
+      },
+      {
+        title: "Monitoreo en\nTiempo Real",
+        desc: "Gestión operativa y\ncomercial ante el CEN",
+        Icon: HiOutlineSignal,
+      },
+      {
+        title: "Indicadores de\nRendimiento",
+        desc: "Gestión operativa y\ncomercial ante el CEN",
+        Icon: HiOutlineClipboardDocumentCheck,
+      },
+      {
+        title: "Facturación y\nConciliación\nHistórica",
+        desc: "Gestión operativa y\ncomercial ante el CEN",
+        Icon: HiOutlineDocumentText,
+      },
+      {
+        title: "Compra y Venta de\nEnergía",
+        desc: "Gestión operativa y\ncomercial ante el CEN",
+        Icon: HiOutlineArrowsRightLeft,
+      },
+      {
+        title: "Evaluación y\nValorización de\nContratos",
+        desc: "Gestión operativa y\ncomercial ante el CEN",
+        Icon: HiOutlineArrowPathRoundedSquare,
+      },
+    ].map(({ title, desc, Icon }) => (
+      <div
+        key={title}
+        className="
+          rounded-2xl bg-white
+          border border-black/10
+          shadow-[0_18px_40px_rgba(0,0,0,0.12)]
+          px-8 pt-8 pb-9
+          min-h-[230px]
+          flex flex-col items-center justify-between text-center
+          transition-all duration-300
+          hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(0,0,0,0.16)]
+        "
+      >
+        <div className="w-full max-w-[260px] mx-auto">
+          <p className="text-xl font-semibold leading-snug text-[#1A1C1D] whitespace-pre-line">
+            {title}
+          </p>
+
+          <p className="mt-4 text-lg leading-relaxed text-black/40 whitespace-pre-line">
+            {desc}
+          </p>
+        </div>
+
+        <Icon className="mt-8 text-[#00AA2B] text-[60px]" />
+      </div>
+    ))}
+  </div>
+</section>;
