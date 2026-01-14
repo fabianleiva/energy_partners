@@ -13,11 +13,7 @@ export default {
         },
       },
       fontFamily: {
-        "ballet": ['"Ballet"', "cursive"],
         "work-sans": ['"Work Sans"', "sans-serif"],
-        "tsukimi": ['"Tsukimi Rounded"', "sans-serif"],
-        "notable": ['"Notable"', "sans-serif"],
-        "special-gothic": ['"Special Gothic Expanded One"', "sans-serif"],
       },
     },
   },
