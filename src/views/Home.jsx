@@ -481,7 +481,7 @@ const Home = () => {
           </div>
 
           {/* Botón/píldora */}
-          <div className="mt-36 mb-20 flex flex-col items-center px-10">
+          <div className="mt-20 mb-20 flex flex-col items-center px-10">
             {/* <p className="mb-6">Main Partner</p> */}
             <a
               href="https://novasur.cl"
