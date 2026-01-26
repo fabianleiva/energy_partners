@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import logoEP from "../assets/images/svg_logo_ep_1.png";
 
 const NavigationBar = () => {
   const { pathname } = useLocation();
@@ -91,7 +92,7 @@ const NavigationBar = () => {
               className="flex items-center"
             >
               <img
-                src="/src/assets/images/svg_logo_ep_1.png"
+                src={logoEP}
                 alt="Energy Partners"
                 className="max-w-40 lg:max-w-80"
               />

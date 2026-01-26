@@ -21,6 +21,7 @@ import novasurLogo from "../assets/images/Logo NovaSur_transparent.png";
 import { IoArrowDownCircleOutline } from "react-icons/io5";
 import bg3 from "../assets/images/logo_vector.png";
 import logoEP from "../assets/images/svg_logo_ep_1.png";
+import logoEP_noText from "../assets/images/logo_noText.png";
 
 const Home = () => {
   const platformRef = useRef(null);
@@ -133,7 +134,7 @@ const Home = () => {
                 {/* Logo centrado */}
                 <div className="flex justify-center w-full lg:w-auto">
                   <img
-                    src="/src/assets/images/logo_noText.png"
+                    src={logoEP_noText}
                     alt="Energy Partners"
                     className="h-16 w-auto sm:h-20 lg:h-32"
                   />
