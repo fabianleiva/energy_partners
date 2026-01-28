@@ -88,7 +88,7 @@ const Home = () => {
         {/* Contenido */}
         <div className="relative z-10 max-w-[90vw] mx-auto px-5">
           <div className="min-h-[100vh] flex flex-col justify-center text-left">
-            <h1 className="mt-6 lg:mt-24 text-5xl lg:text-7xl font-semibold tracking-wide">
+            <h1 className="mt-48 lg:mt-24 text-5xl lg:text-7xl font-semibold tracking-wide">
               Experiencia,{" "}
             </h1>
             <h1 className="mt-3 text-5xl lg:text-7xl font-semibold tracking-wide">
@@ -162,7 +162,7 @@ const Home = () => {
                 text-[22px] sm:text-[28px] lg:text-5xl
                 leading-[1.25] sm:leading-[1.2]
                 tracking-wide sm:tracking-widest
-                break-words
+                break-words max-w-[65vw]
               "
                   >
                     <span className="font-bold mr-5">Guiamos</span>
@@ -175,8 +175,7 @@ const Home = () => {
                     <span className="font-light">de su</span>
                     <br />
                     <span className="font-light mr-5">producción</span>
-                    <span className="font-bold">energética</span>
-                    <span className="font-light mr-5">,</span>
+                    <span className="font-bold mr-5">energética,</span>
                     <span className="font-light mr-5">dentro del</span>
                     <br />
                     <span className="font-bold">
