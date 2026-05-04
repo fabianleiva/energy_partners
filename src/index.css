@@ -16,7 +16,7 @@
 
 @media (max-width: 1023px) {
   .bg-hero-desktop {
-    background-size: contain;
+    background-size: 130%;
     background-position: center center;
   }
 }
