@@ -73,13 +73,8 @@ const Home = () => {
       >
         {/* Background */}
         <div
-          className="absolute inset-0 pointer-events-none blur-[0.5px] brightness-75"
-          style={{
-            backgroundImage: `url(${bg3})`,
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center center",
-            backgroundSize: "cover",
-          }}
+          className="absolute inset-0 pointer-events-none blur-[0.5px] brightness-75 bg-no-repeat bg-cover bg-[center_30%] lg:bg-center"
+          style={{ backgroundImage: `url(${bg3})` }}
         />
 
         {/* Overlay opcional para contraste (si lo necesitas) */}
@@ -114,7 +109,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 pt-5">
+          <div className="absolute bottom-20 lg:bottom-10 left-1/2 -translate-x-1/2 z-20 pt-5">
             <IoArrowDownCircleOutline className="text-[#fafafa] text-5xl opacity-60 animate-bounce" />
           </div>
         </div>
