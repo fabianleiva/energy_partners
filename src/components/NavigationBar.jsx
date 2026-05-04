@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import logoEP from "../assets/images/svg_logo_ep_1.png";
 
@@ -7,10 +7,6 @@ const NavigationBar = () => {
   const navigate = useNavigate();
 
   const [showInfoText, setShowInfoText] = useState(false);
-
-  // NUEVO: visibilidad del navbar
-  const [isNavVisible, setIsNavVisible] = useState(true);
-  const lastScrollY = useRef(0);
 
   const toggleInfo = () => setShowInfoText((prev) => !prev);
 
@@ -41,47 +37,10 @@ const NavigationBar = () => {
     </button>
   );
 
-  // NUEVO: hide on scroll down, show on scroll up
-  useEffect(() => {
-    const onScroll = () => {
-      // si el menú mobile está abierto, mantenlo visible
-      if (showInfoText) {
-        setIsNavVisible(true);
-        lastScrollY.current = window.scrollY;
-        return;
-      }
-
-      const currentY = window.scrollY;
-      const prevY = lastScrollY.current;
-
-      // zona "segura" arriba: siempre visible
-      if (currentY < 80) {
-        setIsNavVisible(true);
-      } else {
-        const goingDown = currentY > prevY;
-        const delta = Math.abs(currentY - prevY);
-
-        // evita parpadeos con micro-scroll
-        if (delta > 6) {
-          setIsNavVisible(!goingDown);
-        }
-      }
-
-      lastScrollY.current = currentY;
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [showInfoText]);
-
   return (
     <header>
       <nav
-        className={`fixed top-0 left-0 z-[100] w-full px-6 py-5 font-work-sans tracking-tight font-medium
-  transition-transform duration-300 ease-out
-  ${isNavVisible ? "translate-y-0" : "-translate-y-full"}
-  bg-[#163A3D]/80 backdrop-blur-md
-  `}
+        className="w-full px-6 pt-5 font-work-sans tracking-tight font-medium bg-[#163A3D]/80 backdrop-blur-md"
       >
         <div className="max-w-[90vw] mx-auto flex items-center justify-between">
           {/* LOGO — sin tocar tamaño */}
@@ -94,7 +53,7 @@ const NavigationBar = () => {
               <img
                 src={logoEP}
                 alt="Energy Partners"
-                className="max-w-40 lg:max-w-80"
+                className="max-w-40 lg:max-w-60"
               />
             </button>
           </div>
@@ -140,7 +99,7 @@ const NavigationBar = () => {
 
       {/* MENÚ MOBILE */}
       <div
-        className={`lg:hidden fixed inset-0 bg-[#163A3D] z-[90] flex flex-col items-center justify-center transition-opacity duration-500 ${
+        className={`lg:hidden absolute top-full left-0 w-full bg-[#163A3D] z-[90] flex flex-col items-center justify-center py-10 transition-opacity duration-500 ${
           showInfoText
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
