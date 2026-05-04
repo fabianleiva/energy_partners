@@ -69,7 +69,7 @@ const Home = () => {
       {/* HOME / HERO */}
       <section
         id="home"
-        className="relative scroll-mt-[14vh] min-h-[70vh] lg:min-h-[85vh] overflow-hidden bg-[#163A3D]"
+        className="relative scroll-mt-[14vh] min-h-[70vh] lg:min-h-[85vh] overflow-hidden bg-[#163A3D] pt-16 lg:pt-0"
       >
         {/* Background */}
         <div
