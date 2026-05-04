@@ -118,7 +118,7 @@ const Home = () => {
       {/* SOMOS */}
       <section
         id="somos"
-        className="scroll-mt-[14vh] pt-6 lg:pt-24 bg-[#163A3D]"
+        className="scroll-mt-[14vh] pt-3 lg:pt-12 bg-[#163A3D]"
       >
         <div className="w-[94vw] mx-auto">
           <div className="bg-[#fafafa] text-black/80 rounded-3xl shadow-lg overflow-hidden">
