@@ -87,7 +87,7 @@ const Home = () => {
 
         {/* Contenido */}
         <div className="relative z-10 max-w-[90vw] mx-auto px-5">
-          <div className="min-h-[100vh] flex flex-col justify-center text-left">
+          <div className="min-h-[80vh] flex flex-col text-left">
             <h1 className="mt-48 lg:mt-24 text-5xl lg:text-7xl font-semibold tracking-wide">
               Experiencia,{" "}
             </h1>
@@ -105,7 +105,7 @@ const Home = () => {
             </div>
 
             <h1 className="mt-3 text-5xl lg:text-5xl tracking-wide font-light">
-              Sistema eléctrico Nacional{" "}
+              Sistema Eléctrico Nacional{" "}
             </h1>
             <p className="text-lg max-w-2xl mt-16 tracking-widest text-[#fafafa]/60">
               Representamos, administramos y comercializamos energía con una
@@ -114,7 +114,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 pt-5">
             <IoArrowDownCircleOutline className="text-[#fafafa] text-5xl opacity-60 animate-bounce" />
           </div>
         </div>
@@ -227,42 +227,42 @@ const Home = () => {
           {[
             {
               title: "Representación y\nAdministración de\nCentrales",
-              desc: "Gestión operativa y\ncomercial ante el CEN",
+              desc: "Representamos a generadores y comercializadores ante el CEN.",
               Icon: HiOutlineCog6Tooth,
             },
             {
               title: "Declaraciones y\nLiquidaciones MCP",
-              desc: "Gestión operativa y\ncomercial ante el CEN",
+              desc: "Gestionamos declaraciones de costos y liquidaciones del mercado spot.",
               Icon: HiOutlineCheckBadge,
             },
             {
               title: "Reportes\nOperacionales y\nRegulatorios",
-              desc: "Gestión operativa y\ncomercial ante el CEN",
+              desc: "Elaboramos informes técnicos exigidos por el CEN y la CNE.",
               Icon: HiOutlinePresentationChartLine,
             },
             {
               title: "Monitoreo en\nTiempo Real",
-              desc: "Gestión operativa y\ncomercial ante el CEN",
+              desc: "Seguimiento continuo de variables críticas de generación.",
               Icon: HiOutlineSignal,
             },
             {
               title: "Indicadores de\nRendimiento",
-              desc: "Gestión operativa y\ncomercial ante el CEN",
+              desc: "Métricas de disponibilidad y eficiencia de sus activos.",
               Icon: HiOutlineClipboardDocumentCheck,
             },
             {
               title: "Facturación y\nConciliación\nHistórica",
-              desc: "Gestión operativa y\ncomercial ante el CEN",
+              desc: "Conciliamos facturas de energía, potencia y peajes.",
               Icon: HiOutlineDocumentText,
             },
             {
               title: "Compra y Venta de\nEnergía",
-              desc: "Gestión operativa y\ncomercial ante el CEN",
+              desc: "Gestión de transacciones en el mercado spot y bilateral.",
               Icon: HiOutlineArrowsRightLeft,
             },
             {
               title: "Evaluación y\nValorización de\nContratos",
-              desc: "Gestión operativa y\ncomercial ante el CEN",
+              desc: "Análisis técnico-económico y evaluación de riesgos contractuales.",
               Icon: HiOutlineArrowPathRoundedSquare,
             },
           ].map(({ title, desc, Icon }) => (
@@ -273,23 +273,22 @@ const Home = () => {
           border border-black/10
           shadow-[0_18px_40px_rgba(0,0,0,0.12)]
           px-8 pt-8 pb-9
-          min-h-[200px] lg:min-h-[230px]
-          flex flex-col items-center justify-between text-center
+          flex flex-col items-center text-center
           transition-all duration-300
           hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(0,0,0,0.16)]
         "
             >
-              <div className="w-full max-w-[260px] mx-auto">
+              <div className="w-full max-w-[260px] mx-auto flex flex-col">
                 <p className="text-lg sm:text-xl font-semibold leading-snug text-[#1A1C1D] whitespace-pre-line">
                   {title}
                 </p>
 
-                <p className="mt-3 sm:mt-4 text-base sm:text-lg leading-relaxed text-black/40 whitespace-pre-line">
+                <p className="mt-3 text-sm sm:text-base leading-relaxed text-black/40">
                   {desc}
                 </p>
               </div>
 
-              <Icon className="mt-6 lg:mt-8 text-[#00AA2B] text-[44px] sm:text-[52px] lg:text-[60px]" />
+              <Icon className="mt-auto pt-6 text-[#00AA2B] w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 flex-shrink-0" />
             </div>
           ))}
         </div>
@@ -321,7 +320,7 @@ const Home = () => {
             {/* Monitoreo en tiempo real */}
             <div className="px-6 sm:px-8 py-10 lg:px-12 lg:py-14">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-                <div className="lg:col-span-3 text-center">
+                <div className="lg:col-span-3 text-left">
                   <h3 className="text-3xl lg:text-2xl font-semibold tracking-tight leading-tight mb-8 lg:mb-10">
                     Monitoreo
                     <br />
@@ -353,7 +352,7 @@ const Home = () => {
             <div className="px-6 sm:px-8 py-10 lg:px-12 lg:py-14">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
                 {/* Texto */}
-                <div className="order-1 lg:order-2 lg:col-span-3 text-center">
+                <div className="order-1 lg:order-2 lg:col-span-3 text-right">
                   <h3 className="text-3xl lg:text-2xl font-semibold tracking-tight leading-tight mb-8 lg:mb-10">
                     Distribución
                     <br />
@@ -393,7 +392,7 @@ const Home = () => {
             {/* Indicadores de Rendimiento */}
             <div className="px-6 sm:px-8 py-10 lg:px-12 lg:py-14">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-                <div className="lg:col-span-3 text-center">
+                <div className="lg:col-span-3 text-left">
                   <h3 className="text-3xl lg:text-2xl font-semibold tracking-tight leading-tight mb-8 lg:mb-10">
                     Indicadores
                     <br />
