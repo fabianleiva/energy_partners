@@ -101,7 +101,7 @@ const NavigationBar = () => {
 
           {/* LINKS DESKTOP — alineados verticalmente con el logo */}
           <div className="hidden lg:flex items-center gap-6 text-lg">
-            <LinkBtn id="home" label="Home" />
+            <LinkBtn id="home" label="Inicio" />
             <LinkBtn id="somos" label="Somos" />
             <LinkBtn id="servicios" label="Servicios" />
             <LinkBtn id="plataforma" label="Plataforma" />
@@ -146,7 +146,7 @@ const NavigationBar = () => {
             : "opacity-0 pointer-events-none"
         }`}
       >
-        <LinkBtn id="home" label="Home" className="text-4xl mb-6" />
+        <LinkBtn id="home" label="Inicio" className="text-4xl mb-6" />
         <LinkBtn id="somos" label="Somos" className="text-4xl mb-6" />
         <LinkBtn id="servicios" label="Servicios" className="text-4xl mb-6" />
         <LinkBtn id="plataforma" label="Plataforma" className="text-4xl mb-6" />
