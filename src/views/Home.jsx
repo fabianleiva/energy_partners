@@ -73,7 +73,7 @@ const Home = () => {
       >
         {/* Background */}
         <div
-          className="absolute inset-0 pointer-events-none blur-[0.5px] brightness-75 bg-no-repeat bg-cover bg-[center_30%] lg:bg-center"
+          className="absolute inset-0 pointer-events-none blur-[0.5px] brightness-75 bg-hero-desktop -translate-y-1/4"
           style={{ backgroundImage: `url(${bg3})` }}
         />
 

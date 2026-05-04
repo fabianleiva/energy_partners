@@ -8,6 +8,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg-hero-desktop {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+@media (max-width: 1023px) {
+  .bg-hero-desktop {
+    background-size: contain;
+    background-position: center center;
+  }
+}
+
 @layer utilities {
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
