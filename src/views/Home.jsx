@@ -88,23 +88,23 @@ const Home = () => {
         {/* Contenido */}
         <div className="relative z-10 max-w-[90vw] mx-auto px-5">
           <div className="min-h-[70vh] lg:min-h-[80vh] flex flex-col text-left pb-40 lg:pb-0">
-            <h1 className="mt-16 lg:mt-24 text-3xl lg:text-7xl font-semibold tracking-wide">
+            <h1 className="mt-16 lg:mt-24 text-2xl lg:text-7xl font-semibold tracking-wide">
               Experiencia,{" "}
             </h1>
-            <h1 className="mt-3 text-3xl lg:text-7xl font-semibold tracking-wide">
+            <h1 className="mt-3 text-2xl lg:text-7xl font-semibold tracking-wide">
               precisión y{" "}
             </h1>
 
             <div className="lg:flex items-baseline">
-              <h1 className="mt-3 text-3xl lg:text-7xl font-semibold tracking-wide mr-5">
+              <h1 className="mt-3 text-2xl lg:text-7xl font-semibold tracking-wide mr-5">
                 tecnología{" "}
               </h1>{" "}
-              <h1 className="mt-3 text-2xl lg:text-5xl tracking-wide font-light">
+              <h1 className="mt-3 text-xl lg:text-5xl tracking-wide font-light">
                 al servicio del{" "}
               </h1>
             </div>
 
-            <h1 className="mt-3 text-2xl lg:text-5xl tracking-wide font-light">
+            <h1 className="mt-3 text-xl lg:text-5xl tracking-wide font-light">
               Sistema Eléctrico Nacional{" "}
             </h1>
             <p className="text-base lg:text-lg max-w-2xl mt-8 lg:mt-16 tracking-widest text-[#fafafa]/60">
