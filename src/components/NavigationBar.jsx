@@ -38,9 +38,9 @@ const NavigationBar = () => {
   );
 
   return (
-    <header>
+    <header className="fixed top-0 left-0 right-0 lg:relative lg:top-auto z-50">
       <nav
-        className="w-full px-6 pt-5 font-work-sans tracking-tight font-medium bg-[#163A3D]/80 backdrop-blur-md"
+        className="w-full px-6 py-3 lg:pt-5 lg:pb-0 font-work-sans tracking-tight font-medium bg-[#163A3D]/80 backdrop-blur-md"
       >
         <div className="max-w-[90vw] mx-auto flex items-center justify-between">
           {/* LOGO — sin tocar tamaño */}
@@ -53,7 +53,7 @@ const NavigationBar = () => {
               <img
                 src={logoEP}
                 alt="Energy Partners"
-                className="max-w-40 lg:max-w-60"
+                className="max-w-20 lg:max-w-60"
               />
             </button>
           </div>
