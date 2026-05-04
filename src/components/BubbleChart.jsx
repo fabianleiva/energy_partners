@@ -119,7 +119,7 @@ export default function BubbleChart({ compact = false }) {
           domain={[-0.5, zones.length - 0.5]}
           ticks={[0,1,2,3,4]}
           tickFormatter={(v) => zones[Math.round(v)] ?? ""}
-          width={compact ? 86 : 140} // 👈 clave: si no, mobile queda sin espacio
+          width={compact ? 68 : 140}
           tick={{ fill: "rgba(26,28,29,0.55)", fontSize: compact ? 11 : 12 }}
           tickLine={false}
           axisLine={false}

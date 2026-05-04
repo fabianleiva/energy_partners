@@ -21,6 +21,12 @@
   }
 }
 
+@media (max-width: 639px) {
+  .somos-heading br {
+    display: none;
+  }
+}
+
 @layer utilities {
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {

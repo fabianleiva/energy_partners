@@ -145,7 +145,7 @@ const Home = () => {
               <div
                 className="
             mt-28
-            mx-6 sm:mx-10 lg:mx-20
+            sm:mx-10 lg:mx-20
             flex flex-col gap-10 lg:gap-14
             items-start text-start
           "
@@ -154,24 +154,23 @@ const Home = () => {
                 <div>
                   <h2
                     className="
-                text-[22px] sm:text-[28px] lg:text-5xl
+                somos-heading
+                text-[18px] sm:text-[28px] lg:text-5xl
                 leading-[1.25] sm:leading-[1.2]
                 tracking-wide sm:tracking-widest
-                break-words max-w-[65vw]
+                break-words max-w-full sm:max-w-[65vw]
               "
                   >
-                    <span className="font-bold mr-5">Guiamos</span>
-                    <span className="font-light">
-                      a centrales de generación
-                    </span>
+                    <span className="font-bold mr-2 sm:mr-5">Guiamos</span>
+                    <span className="font-light">a centrales de generación </span>
                     <br />
-                    <span className="font-light mr-5">en la</span>
-                    <span className="font-bold mr-5">gestión y operación</span>
-                    <span className="font-light">de su</span>
+                    <span className="font-light mr-2 sm:mr-5">en la</span>
+                    <span className="font-bold mr-2 sm:mr-5">gestión y operación</span>
+                    <span className="font-light">de su </span>
                     <br />
-                    <span className="font-light mr-5">producción</span>
-                    <span className="font-bold mr-5">energética,</span>
-                    <span className="font-light mr-5">dentro del</span>
+                    <span className="font-light mr-2 sm:mr-5">producción</span>
+                    <span className="font-bold mr-2 sm:mr-5">energética,</span>
+                    <span className="font-light mr-2 sm:mr-5">dentro del </span>
                     <br />
                     <span className="font-bold">
                       Sistema Eléctrico Nacional
@@ -209,16 +208,16 @@ const Home = () => {
           Servicios
         </h2>
 
-        <h3 className="mt-6 text-4xl lg:text-5xl font-semibold tracking-tight text-center">
+        <h3 className="mt-6 text-2xl lg:text-5xl font-semibold tracking-tight text-center">
           Soluciones para generadores y comercializadores
         </h3>
 
-        <h3 className="text-4xl lg:text-5xl font-semibold tracking-tight text-center">
+        <h3 className="text-2xl lg:text-5xl font-semibold tracking-tight text-center">
           del Sistema Eléctrico Nacional
         </h3>
 
         {/* Grid de servicios */}
-        <div className="mt-20 grid grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 px-4 sm:px-8 lg:px-32">
+        <div className="mt-10 lg:mt-20 grid grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-8 lg:gap-10 px-0 sm:px-8 lg:px-32">
           {[
             {
               title: "Representación y\nAdministración de\nCentrales",
@@ -267,23 +266,23 @@ const Home = () => {
           rounded-2xl bg-white
           border border-black/10
           shadow-[0_18px_40px_rgba(0,0,0,0.12)]
-          px-8 pt-8 pb-9
+          px-3 pt-5 pb-5 sm:px-8 sm:pt-8 sm:pb-9
           flex flex-col items-center text-center
           transition-all duration-300
           hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(0,0,0,0.16)]
         "
             >
-              <div className="w-full max-w-[260px] mx-auto flex flex-col">
-                <p className="text-lg sm:text-xl font-semibold leading-snug text-[#1A1C1D] whitespace-pre-line">
+              <div className="w-full mx-auto flex flex-col">
+                <p className="text-xs sm:text-lg sm:text-xl font-semibold leading-snug text-[#1A1C1D] sm:whitespace-pre-line">
                   {title}
                 </p>
 
-                <p className="mt-3 text-sm sm:text-base leading-relaxed text-black/40">
+                <p className="mt-2 sm:mt-3 text-xs sm:text-base leading-relaxed text-black/40">
                   {desc}
                 </p>
               </div>
 
-              <Icon className="mt-auto pt-6 text-[#00AA2B] w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 flex-shrink-0" />
+              <Icon className="mt-auto pt-4 sm:pt-6 text-[#00AA2B] w-10 h-10 sm:w-14 sm:h-14 lg:w-20 lg:h-20 flex-shrink-0" />
             </div>
           ))}
         </div>
@@ -293,36 +292,37 @@ const Home = () => {
       <section
         id="plataforma"
         ref={platformRef}
-        className="scroll-mt-[14vh] px-6 sm:px-8 py-10 lg:px-12 lg:py-20"
+        className="scroll-mt-[14vh] py-10 lg:px-12 lg:py-20"
       >
+        <div className="w-[94vw] mx-auto lg:w-full">
         <div className="bg-[#fafafa] text-black/80 rounded-3xl border border-black/10 shadow-lg overflow-hidden">
           <div className="w-full mx-auto">
             {/* Header */}
-            <div className="px-6 sm:px-8 py-10 lg:px-12 lg:pt-28">
+            <div className="px-8 py-10 lg:px-12 lg:pt-28">
               <h2 className="text-center text-2xl font-semibold uppercase tracking-wider text-[#00AA2B]">
                 Plataforma
               </h2>
 
-              <h3 className="mt-6 text-4xl lg:text-5xl font-semibold tracking-tight text-center">
+              <h3 className="mt-6 text-2xl lg:text-5xl font-semibold tracking-tight text-center">
                 Integración directa con CEN y monitoreo en tiempo real
               </h3>
 
-              <h3 className="text-4xl lg:text-5xl font-semibold tracking-tight text-center">
+              <h3 className="text-2xl lg:text-5xl font-semibold tracking-tight text-center">
                 para una operación energética más eficiente
               </h3>
             </div>
 
             {/* Monitoreo en tiempo real */}
-            <div className="px-6 sm:px-8 py-10 lg:px-12 lg:py-14">
+            <div className="px-8 py-10 lg:px-12 lg:py-14">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
                 <div className="lg:col-span-3 text-left">
-                  <h3 className="text-3xl lg:text-2xl font-semibold tracking-tight leading-tight mb-8 lg:mb-10">
+                  <h3 className="text-xl lg:text-2xl font-semibold tracking-tight leading-tight mb-8 lg:mb-10">
                     Monitoreo
                     <br />
                     en Tiempo Real
                   </h3>
 
-                  <div className="mt-4 lg:mt-6 space-y-2 lg:space-y-3 text-black/60 text-md leading-relaxed">
+                  <div className="mt-4 lg:mt-6 space-y-2 lg:space-y-3 text-black/60 text-sm lg:text-md leading-relaxed">
                     <p>Lectura horaria de generación y retiros.</p>
                     <p>Actualización continua de variables operativas.</p>
                     <p>Seguimiento del costo marginal por barra.</p>
@@ -331,7 +331,7 @@ const Home = () => {
                 </div>
 
                 <div className="lg:col-span-9">
-                  <div className="w-full h-[220px] sm:h-[260px] lg:h-[360px]">
+                  <div className="w-full h-[220px] sm:h-[260px] lg:h-[360px] -translate-x-4 sm:translate-x-0">
                     <div className="block sm:hidden h-full">
                       <StackedAreaChart compact />
                     </div>
@@ -344,17 +344,17 @@ const Home = () => {
             </div>
 
             {/* Distribución Operativa */}
-            <div className="px-6 sm:px-8 py-10 lg:px-12 lg:py-14">
+            <div className="px-8 py-10 lg:px-12 lg:py-14">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
                 {/* Texto */}
-                <div className="order-1 lg:order-2 lg:col-span-3 text-right">
-                  <h3 className="text-3xl lg:text-2xl font-semibold tracking-tight leading-tight mb-8 lg:mb-10">
+                <div className="order-1 lg:order-2 lg:col-span-3 text-left lg:text-right">
+                  <h3 className="text-xl lg:text-2xl font-semibold tracking-tight leading-tight mb-8 lg:mb-10">
                     Distribución
                     <br />
                     Operativa
                   </h3>
 
-                  <div className="mt-4 lg:mt-6 space-y-2 lg:space-y-3 text-black/60 text-md leading-relaxed">
+                  <div className="mt-4 lg:mt-6 space-y-2 lg:space-y-3 text-black/60 text-sm lg:text-md leading-relaxed">
                     <p>Participación por central y unidad.</p>
                     <p>Composición física de inyecciones y retiros.</p>
                     <p>Balance energético del sistema.</p>
@@ -365,7 +365,7 @@ const Home = () => {
                 {/* Chart */}
                 <div className="order-2 lg:order-1 lg:col-span-9 ">
                   <div className="order-2 lg:order-1 lg:col-span-9">
-                    <div className="w-full h-[220px] sm:h-[260px] lg:h-[360px]">
+                    <div className="w-full h-[220px] sm:h-[260px] lg:h-[360px] -translate-x-4 sm:translate-x-0">
                       {platformInView ? (
                         <>
                           <div className="block sm:hidden h-full">
@@ -385,16 +385,16 @@ const Home = () => {
             </div>
 
             {/* Indicadores de Rendimiento */}
-            <div className="px-6 sm:px-8 py-10 lg:px-12 lg:py-14">
+            <div className="px-8 py-10 lg:px-12 lg:py-14">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
                 <div className="lg:col-span-3 text-left">
-                  <h3 className="text-3xl lg:text-2xl font-semibold tracking-tight leading-tight mb-8 lg:mb-10">
+                  <h3 className="text-xl lg:text-2xl font-semibold tracking-tight leading-tight mb-8 lg:mb-10">
                     Indicadores
                     <br />
                     de Rendimiento
                   </h3>
 
-                  <div className="mt-4 lg:mt-6 space-y-2 lg:space-y-3 text-black/60 text-md leading-relaxed">
+                  <div className="mt-4 lg:mt-6 space-y-2 lg:space-y-3 text-black/60 text-sm lg:text-md leading-relaxed">
                     <p>Comparativo de potencia programada vs. realizada.</p>
                     <p>Indicadores de eficiencia operativa.</p>
                     <p>Análisis de desempeño por central.</p>
@@ -404,7 +404,7 @@ const Home = () => {
 
                 <div className="lg:col-span-9 ">
                   <div className="lg:col-span-9">
-                    <div className="w-full h-[220px] sm:h-[260px] lg:h-[360px]">
+                    <div className="w-full h-[220px] sm:h-[260px] lg:h-[360px] -translate-x-4 sm:translate-x-0">
                       {platformInView ? (
                         <>
                           <div className="block sm:hidden h-full">
@@ -423,6 +423,7 @@ const Home = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </section>
 

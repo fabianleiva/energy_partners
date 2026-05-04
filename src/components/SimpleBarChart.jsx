@@ -65,8 +65,9 @@ const SimpleBarChart = ({ compact = false }) => {
           tick={{ fill: "rgba(26,28,29,0.55)", fontSize: compact ? 11 : 12 }}
           axisLine={{ stroke: "rgba(0,0,0,0.10)" }}
           tickLine={{ stroke: "rgba(0,0,0,0.08)" }}
-          interval={compact ? "preserveStartEnd" : 0}
+          interval={0}
           tickMargin={8}
+          tickFormatter={(v) => v === "30" ? "30 días" : ["1","5","10","15","20","25"].includes(v) ? v : ""}
         />
 
         <YAxis
