@@ -43,7 +43,7 @@ function CustomTooltip({ active, payload }) {
     >
       <p style={{ margin: 0, fontWeight: 700 }}>{d.zone}</p>
       <p style={{ margin: "6px 0 0 0", color: "rgba(26,28,29,0.75)" }}>
-        {d.month} · valor: <span style={{ fontWeight: 700 }}>{d.value}</span>
+        {d.month} · valor: <span style={{ fontWeight: 700 }}>{d.value} MW</span>
       </p>
     </div>
   );

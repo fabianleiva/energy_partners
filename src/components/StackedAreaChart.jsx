@@ -46,10 +46,12 @@ const StackedAreaChart = ({ compact = false }) => {
           tick={{ fill: "rgba(26,28,29,0.55)", fontSize: compact ? 11 : 12 }}
           axisLine={{ stroke: "rgba(0,0,0,0.10)" }}
           tickLine={{ stroke: "rgba(0,0,0,0.08)" }}
-          width={compact ? 42 : 44}
+          width={compact ? 68 : 82}
+          tickFormatter={(v) => `${v} MW`}
         />
 
         <Tooltip
+          formatter={(value) => [`${value} MW`]}
           contentStyle={{
             borderRadius: 14,
             border: "1px solid rgba(0,0,0,0.08)",
