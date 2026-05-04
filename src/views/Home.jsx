@@ -87,8 +87,8 @@ const Home = () => {
 
         {/* Contenido */}
         <div className="relative z-10 max-w-[90vw] mx-auto px-5">
-          <div className="min-h-[80vh] flex flex-col text-left">
-            <h1 className="mt-48 lg:mt-24 text-5xl lg:text-7xl font-semibold tracking-wide">
+          <div className="min-h-[80vh] flex flex-col text-left pb-40 lg:pb-0">
+            <h1 className="mt-28 lg:mt-24 text-5xl lg:text-7xl font-semibold tracking-wide">
               Experiencia,{" "}
             </h1>
             <h1 className="mt-3 text-5xl lg:text-7xl font-semibold tracking-wide">
@@ -107,7 +107,7 @@ const Home = () => {
             <h1 className="mt-3 text-5xl lg:text-5xl tracking-wide font-light">
               Sistema Eléctrico Nacional{" "}
             </h1>
-            <p className="text-lg max-w-2xl mt-16 tracking-widest text-[#fafafa]/60">
+            <p className="text-lg max-w-2xl mt-8 lg:mt-16 tracking-widest text-[#fafafa]/60">
               Representamos, administramos y comercializamos energía con una
               operación confiable, transparente y alineada a los estándares del
               CEN, CNE y SEC.
