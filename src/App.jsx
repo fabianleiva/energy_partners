@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import NavigationBar from "./components/NavigationBar";
 import Home from "./views/Home";
@@ -10,10 +10,25 @@ import { useLenis } from "./hooks/useLenis";
 
 function App() {
   useLenis();
-  const [cursorText, setCursorText] = useState(null);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const onLoad = () => setLoaded(true);
+    if (document.readyState === "complete") {
+      setLoaded(true);
+    } else {
+      window.addEventListener("load", onLoad);
+      return () => window.removeEventListener("load", onLoad);
+    }
+  }, []);
 
   return (
     <ParallaxProvider>
+      <div
+        className={`fixed inset-0 z-[999] bg-[#163A3D] transition-opacity duration-700 pointer-events-none ${
+          loaded ? "opacity-0" : "opacity-100"
+        }`}
+      />
       <NavigationBar />
       <Routes>
         <Route path="/" element={<Home />} />
