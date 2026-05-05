@@ -19,7 +19,7 @@ import genersur from "../assets/images/genersur.png";
 import grpower from "../assets/images/grpower.png";
 import novasurLogo from "../assets/images/Logo NovaSur_transparent.png";
 import { IoArrowDownCircleOutline } from "react-icons/io5";
-import bg3 from "../assets/images/logo_vector.png";
+import bg3 from "../assets/images/bg_final.webp";
 import logoEP from "../assets/images/svg_logo_ep_1.png";
 import logoEP_noText from "../assets/images/logo_noText.png";
 
