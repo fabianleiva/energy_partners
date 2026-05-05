@@ -40,7 +40,7 @@ const NavigationBar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 lg:relative lg:top-auto z-50">
       <nav
-        className="w-full px-6 py-3 lg:pt-5 lg:pb-0 font-work-sans tracking-tight font-medium bg-[#163A3D]/80 backdrop-blur-md"
+        className="relative z-50 w-full px-6 py-3 lg:pt-5 lg:pb-0 font-work-sans tracking-tight font-medium bg-[#163A3D]/80 backdrop-blur-md"
       >
         <div className="max-w-[90vw] mx-auto flex items-center justify-between">
           {/* LOGO — sin tocar tamaño */}
@@ -99,7 +99,7 @@ const NavigationBar = () => {
 
       {/* MENÚ MOBILE */}
       <div
-        className={`lg:hidden absolute top-full left-0 w-full bg-[#163A3D] z-[90] flex flex-col items-center justify-center py-10 transition-opacity duration-500 ${
+        className={`lg:hidden fixed inset-0 z-40 bg-[#163A3D] flex flex-col items-center justify-center transition-opacity duration-500 ${
           showInfoText
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
