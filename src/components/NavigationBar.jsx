@@ -53,7 +53,7 @@ const NavigationBar = () => {
               <img
                 src={logoEP}
                 alt="Energy Partners"
-                className="max-w-20 lg:max-w-60"
+                className="max-w-20 md:max-w-36 lg:max-w-60"
               />
             </button>
           </div>
