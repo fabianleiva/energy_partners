@@ -83,7 +83,7 @@ const Home = () => {
         {/* Contenido */}
         <div className="relative z-10 max-w-[90vw] mx-auto px-5">
           <div className="min-h-[70vh] lg:min-h-[80vh] flex flex-col text-left pb-40 lg:pb-0">
-            <h1 className="mt-16 md:mt-40 lg:mt-24 text-3xl lg:text-7xl font-semibold tracking-wide">
+            <h1 className="mt-16 md:mt-80 lg:mt-24 text-3xl lg:text-7xl font-semibold tracking-wide">
               Experiencia,{" "}
             </h1>
             <h1 className="mt-3 text-3xl lg:text-7xl font-semibold tracking-wide">
