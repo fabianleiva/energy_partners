@@ -479,7 +479,7 @@ const Home = () => {
           <div className="mt-20 mb-20 flex flex-col items-center px-10">
             {/* <p className="mb-6">Main Partner</p> */}
             <a
-              href="https://novasur.cl"
+              href="https://enovasur.cl"
               target="_blank"
               rel="noopener noreferrer"
               className="
